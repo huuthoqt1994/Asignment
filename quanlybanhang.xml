@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed Materials - Property of IBM
+    5725-I43 (C) Copyright IBM Corp. 2011, 2013. All Rights Reserved.
+    US Government Users Restricted Rights - Use, duplication or
+    disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<wl:adapter name="quanlybanhang"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:wl="http://www.ibm.com/mfp/integration"
+	xmlns:sql="http://www.ibm.com/mfp/integration/sql">
+
+	<displayName>quanlybanhang</displayName>
+	<description>quanlybanhang</description>
+	<connectivity>
+		<connectionPolicy xsi:type="sql:SQLConnectionPolicy">
+			<!-- Example for using a JNDI data source, replace with actual data source name -->
+			<!-- <dataSourceJNDIName>java:/data-source-jndi-name</dataSourceJNDIName> -->
+			
+			<!-- Example for using MySQL connector, do not forget to put the MySQL connector library in the project's lib folder -->
+			<dataSourceDefinition>
+				<driverClass>com.mysql.jdbc.Driver</driverClass>
+				<url>jdbc:mysql://localhost:3306/quanlybanhang</url>
+			    <user>root</user>
+    			<password></password> 
+			</dataSourceDefinition>
+		</connectionPolicy>
+	</connectivity>
+
+	<!-- Replace this with appropriate procedures -->
+	
+	<procedure name="getQuanlybanhangs_kh"> </procedure>
+	<procedure name="getQuanlybanhangs_hd"> </procedure>
+	<procedure name="getQuanlybanhangs_cthd"> </procedure>
+	<procedure name="getQuanlybanhangs_sp"> </procedure>
+	<procedure name="getQuanlybanhangs_lsp"> </procedure>
+	
+	<procedure name="addQuanlybanhang_kh"> </procedure>
+	<procedure name="addQuanlybanhang_hd"> </procedure>
+	<procedure name="addQuanlybanhang_cthd"> </procedure>
+	<procedure name="addQuanlybanhang_sp"> </procedure>
+	<procedure name="addQuanlybanhang_lsp"> </procedure>
+	
+	<procedure name="updateQuanlybanhang_kh"> </procedure>
+	<procedure name="updateQuanlybanhang_hd"> </procedure>
+	<procedure name="updateQuanlybanhang_cthd"> </procedure>
+	<procedure name="updateQuanlybanhang_sp"> </procedure>
+	<procedure name="updateQuanlybanhang_lsp"> </procedure>
+	
+	<procedure name="deleteQuanlybanhang_kh"> </procedure>
+	<procedure name="deleteQuanlybanhang_hd"> </procedure>
+	<procedure name="deleteQuanlybanhang_cthd"> </procedure>
+	<procedure name="deleteQuanlybanhang_sp"> </procedure>
+	<procedure name="deleteQuanlybanhang_lsp"> </procedure>
+	
+	
+
+</wl:adapter>

@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>Assignment</title>
+    		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    		<!--
+    			<link rel="shortcut icon" href="images/favicon.png">
+    			<link rel="apple-touch-icon" href="images/apple-touch-icon.png"> 
+    		-->
+    		<link rel="stylesheet" href="css/main.css">
+    		<script>window.$ = window.jQuery = WLJQ;</script>
+    		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		  	<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+		  	<script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		  	
+		  	<link href="materialize\css\materialize.css" rel="stylesheet" type="text/css" />
+    		<script src="materialize\js\materialize.js"></script>
+    	</head>
+    	<body style="display: none;" onload="myFunction()" style="margin:0;">
+    		<!--application UI goes here-->
+    		<script src="js/initOptions.js"></script>
+    		<script src="js/main.js"></script>
+    		<script src="js/messages.js"></script>
+    		<div data-role="tabs" id="tabs">
+			  <div id="header" data-role="header"><h1>Quản lý bán hàng</h1></div>
+			  <div class="spacer">
+				  <hr>
+				</div>
+			    <div data-role="tabs">
+			      <div data-role="navbar">
+			        <ul>
+			          <li><a href="#fragment-1" id="tab1" onclick="" class="ui-btn-active">Thông tin khách hàng</a></li>
+			          <li><a href="#fragment-2" id="tab2" onclick="" class="ui-btn-active">Thông tin sản phẩm</a></li>
+			          <li><a href="#fragment-3" id="tab3" onclick="" class="ui-btn-active">Thông tin loại sản phẩm</a></li>
+			          <li><a href="#fragment-4" id="tab4" onclick="" class="ui-btn-active">Thông tin hóa đơn</a></li>
+			          <li><a href="#fragment-5" id="tab5" onclick="" class="ui-btn-active">Thông tin chi tiết hóa đơn</a></li>
+			        </ul>
+			       
+			      </div>
+			      <div id="fragment-1">
+			        <div id="loader"></div>
+					<div id="myDiv" class="animate-bottom">
+						<ul class="collapsible" data-role="listview" id="khachHang"></ul>
+						<form id="">
+					  <h5>Thêm & Update Khách hàng</h5>
+					    <input type="text" id="Ma_KH" placeholder="Mã khách hàng: " required>
+					    <input type="text" id="Ten_KH" placeholder="Tên khách hàng: " required>
+					    <input type="date" id="Ngay_Sinh" placeholder="Ngày sinh: " required>
+					    <input type="text" id="Dia_Chi" placeholder="Địa chỉ:  " required>
+					    <input type="number" id="CMND" placeholder="CMND: " required>
+					    <input type="number" id="SDT" placeholder="Số điện thoại: " required>
+					  	<button type="submit" id="add" class="mui-btn mui-btn--raised">Add</button>
+					  	<button type="button"  id="update" class="mui-btn mui-btn--raised" onclick="updateKhachHang()">Update</button>	
+					</div>
+			      </div>
+			      <div id="fragment-2">
+			       
+					<div id="myDiv1" class="animate-bottom">
+						<ul class="collapsible" data-role="listview" id="sanPham"></ul>
+						<form id="">
+					  	<h5>Thêm & Update sản phẩm</h5>
+					    <input type="text" id="Ma_SP" placeholder="Mã sản phẩm: " required>
+					    <input type="text" id="Ma_Loai_SP" placeholder="Mã loại sản phẩm " required>
+					    <input type="text" id="Ten_SP" placeholder="Tên sản phẩm: " required>
+					    <input type="number" id="Gia_SP" placeholder="Giá sản phẩm " required>
+					    <input type="text" id="Don_Vi_Tinh" placeholder="Đơn vị tính: " required>
+					    <button type="submit" id="add_sp" class="mui-btn mui-btn--raised">Add</button>
+					  	<button type="button"  id="update" class="mui-btn mui-btn--raised" onclick="updateSanPham()">Update</button>	
+					</div>
+			      </div>
+			      <div id="fragment-3">
+			     
+					<div id="myDiv2" class="animate-bottom">
+						<ul class="collapsible" data-role="listview" id="loaiSanPham"></ul>
+						<form id="">
+					  <h5>Thêm & Update loại sản phẩm</h5>
+					    <input type="text" id="Ma_Loai_SP1" placeholder="Mã loại sản phẩm: " required>
+					    <input type="text" id="Ten_Loai_SP" placeholder="Tên loại sản phẩm: " required>
+					    <input type="number" id="TGBH" placeholder="Thời gian bảo hành: " required>
+					  	<button type="submit" id="add_lsp" class="mui-btn mui-btn--raised">Add</button>
+					  	<button type="button"  id="update" class="mui-btn mui-btn--raised" onclick="updateLoaiSanPham()">Update</button>	
+					</div>
+			      </div>
+			      <div id="fragment-4">
+			 
+					<div id="myDiv3" class="animate-bottom">
+						<ul class="collapsible" data-role="listview" id="hoaDon"></ul>
+						<form id="">
+					  <h5>Thêm & Update hóa đơn</h5>
+					    <input type="text" id="Ma_HD1" placeholder="Mã hóa đơn: " required>
+					    <input type="text" id="Ma_KH1" placeholder="Mã khách hàng: " required>
+					    <input type="number" id="GiaTri_HD" placeholder="Giá trị hóa đơn: " required>
+					    <input type="date" id="Ngay_Hoa_Don" placeholder="Ngày hóa đơn: " required>
+					  	<button type="submit" id="add_hd" class="mui-btn mui-btn--raised">Add</button>
+					  	<button type="button"  id="update" class="mui-btn mui-btn--raised" onclick="updateHoaDon()">Update</button>	
+					</div>
+			      </div>
+			      <div id="fragment-5">
+			
+					<div id="myDiv4" class="animate-bottom">
+						<ul class="collapsible" data-role="listview" id="chiTietHoaDon"></ul>
+						<form id="">
+					  <h5>Thêm & Update chi tiết hóa đơn</h5>
+					  	<input type="text" id="ID_CTHD" placeholder="Mã chi tiết hóa đơn: " required>	
+					    <input type="text" id="Ma_HD2" placeholder="Mã hóa đơn: " required>
+					    <input type="text" id="Ma_SP2" placeholder="Mã sản phẩm: " required>
+					    <input type="number" id="So_Luong" placeholder="Số lượng " required>
+					    <input type="number" id="Don_Gia" placeholder="Đơn giá: " required>
+					    <input type="number" id="Thanh_tien" placeholder="Thành tiền: " required>
+					  	<button type="submit" id="add_cthd" class="mui-btn mui-btn--raised">Add</button>
+					  	<button type="button"  id="update" class="mui-btn mui-btn--raised" onclick="updateChiTietHoaDon()">Update</button>	
+					</div>
+			      </div>
+			      
+			    </div>
+			  </div>
+			  <div data-role="footer" data-id="foo1" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="c.html">Seach</a></li>
+						<li><a href="https://mail.google.com/mail">Emails</a></li>
+					</ul>
+					
+				</div><!-- /navbar -->
+			</div><!-- /footer -->
+    	</body>
+</html>
